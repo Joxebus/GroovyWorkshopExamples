@@ -17,6 +17,17 @@ and finally
 
 - Use default gradle wrapper
 
+### Example 3 - Java and Groovy working together
+
+This branch contains examples using Groovy operators,
+how to import Java Classes and use it inside Groovy code,
+sort, reverse, with, find and findAll closures.
+
+- Employee.java
+- EmployeeService.groovy
+- EmployeeSpec.groovy
+- UseOperatorsSpec.groovy
+
 ## Requirements
 
 - Java 8
