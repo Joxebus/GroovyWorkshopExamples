@@ -17,7 +17,7 @@ and finally
 
 - Use default gradle wrapper
 
-###Example 1 - Differences and similarities between Groovy and Java
+### Example 1 - Differences and similarities between Groovy and Java
 
 This example contains 2 classes:
 
