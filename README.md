@@ -17,6 +17,23 @@ and finally
 
 - Use default gradle wrapper
 
+###Example 1 - Differences and similarities between Groovy and Java
+
+This example contains 2 classes:
+
+- **Person.groovy**
+- **Person.java**
+
+Both has the same fields and methods on their own style.          
+
+Also this example contains 2 classes one that test with JUnit and the other with Spock.
+  
+- **PersonSpec.groovy** // spock test class
+- **PersonTest.java**   // junit test class
+
+Both classes contains the same tests but in their own style.
+
+
 ## Requirements
 
 - Java 8
