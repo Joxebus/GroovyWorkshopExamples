@@ -17,6 +17,15 @@ and finally
 
 - Use default gradle wrapper
 
+### Example 2 - Groovy features: closures, data types, loops and power asserts
+
+This branch contains some examples of the most common usage of
+closures, data types, loops and power asserts on the next classes
+
+- DefaultDataTypes.groovy
+- Loops.groovy
+- PowerAsserts.groovy
+
 ## Requirements
 
 - Java 8
