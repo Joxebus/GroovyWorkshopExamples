@@ -21,7 +21,8 @@ class BootstrapSpec extends Specification {
         bootstrap.init()
 
         then:
-        5*personService.create(_)
+        1 * personService.findAll()
+        5 * personService.create(_)
     }
 
 }
