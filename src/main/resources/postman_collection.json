@@ -106,7 +106,7 @@
 				}
 			],
 			"folder": null,
-			"rawModeData": "{\n\t\"name\" : \"Diego\",\n\t\"lastName\": \"Ventura\",\n\t\"age\" : 30\n}",
+			"rawModeData": "{\n\"name\" : \"Diego\",\n\"lastName\": \"Ventura\",\n\"age\" : 30,\n\"phone\" : \"442-123-2345\"\n}",
 			"headers": "Content-Type: application/json\n",
 			"pathVariables": {}
 		},

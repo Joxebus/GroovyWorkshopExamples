@@ -2,17 +2,20 @@ package com.nearsoft.challenge.service;
 
 import com.nearsoft.challenge.dao.PersonDao;
 import com.nearsoft.challenge.entity.Person;
+import com.nearsoft.challenge.exception.PhoneFormatException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.regex.Pattern;
 
 @Service
 public class PersonService {
 
-    Logger logger = LoggerFactory.getLogger(PersonService.class);
+    private static final Logger logger = LoggerFactory.getLogger(PersonService.class);
+    private static final String PHONE_REGEX = "(\\d{3})-(\\d{3})-(\\d{4})";
 
     @Autowired
     private PersonDao personDao;
@@ -35,6 +38,7 @@ public class PersonService {
         person.setName(newPerson.getName());
         person.setLastName(newPerson.getLastName());
         person.setAge(newPerson.getAge());
+        person.setPhone(newPerson.getPhone());
         return personDao.update(person);
     }
 
@@ -70,6 +74,10 @@ public class PersonService {
 
         if(person.getAge() < 1 || person.getAge() > 70 ){
             throw new RuntimeException("The person name is not valid.");
+        }
+
+        if(person.getPhone() != null && !Pattern.matches(PHONE_REGEX, person.getPhone())){
+            throw new PhoneFormatException(String.format("Wrong format expected ###-###-####, but was: %s", person.getPhone()));
         }
     }
 

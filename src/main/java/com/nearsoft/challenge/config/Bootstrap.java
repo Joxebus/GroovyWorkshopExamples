@@ -35,6 +35,7 @@ public class Bootstrap {
                     person.setName(data[0].trim());
                     person.setLastName(data[1].trim());
                     person.setAge(Integer.parseInt(data[2].trim()));
+                    person.setPhone(data[3].trim());
                     personService.create(person);
                     logger.info("Loading person: {}", person);
                 });

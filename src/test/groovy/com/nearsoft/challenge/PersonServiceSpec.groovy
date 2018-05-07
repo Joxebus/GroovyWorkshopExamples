@@ -2,6 +2,7 @@ package com.nearsoft.challenge
 
 import com.nearsoft.challenge.dao.PersonDao
 import com.nearsoft.challenge.entity.Person
+import com.nearsoft.challenge.exception.PhoneFormatException
 import com.nearsoft.challenge.service.PersonService
 import spock.lang.Shared
 import spock.lang.Specification
@@ -36,28 +37,29 @@ class PersonServiceSpec extends Specification {
         1 * personDao.save(person)
     }
 
-    @Unroll("Testing invalid values name=#someName, lastName=#someLastName, age=#someAge")
+    @Unroll("Testing invalid values name=#newName, lastName=#newLastName, age=#newAge, phone=#newPhone")
     def "Person with invalid fields throw exception"(){
         given:
         Person newPerson = new Person()
         newPerson.with {
-            name: someName
-            lastName: someLastName
-            age: someAge
+            name = newName
+            lastName = newLastName
+            age = newAge
+            phone = newPhone
         }
 
         when:
         Person person = personService.create(newPerson)
 
         then:
-        thrown RuntimeException
+        thrown exception
 
         where:
-        someName    |   someLastName    | someAge
-        null        |   "something"     | 12
-        "something" |   null            | 12
-        "some"      |   "thing"         | 0
-        "some"      |   "thing"         | 90
+        newName    |  newLastName   |   newAge  |   newPhone    | exception
+        ''         | 'Something'    |   20      |   null        | RuntimeException
+        'Something'| ''             |   20      |   null        | RuntimeException
+        'Something'| 'Another Thing'|   0       |   null        | RuntimeException
+        'Something'| 'Another Thing'|   20      |   '12387611'  | PhoneFormatException
     }
 
     def "Find a person by id"(){

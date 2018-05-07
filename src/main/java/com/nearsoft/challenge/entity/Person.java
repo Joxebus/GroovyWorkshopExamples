@@ -6,6 +6,7 @@ public class Person {
     private String name;
     private String lastName;
     private int age;
+    private String phone;
 
     public int getId() {
         return id;
@@ -39,6 +40,14 @@ public class Person {
         this.age = age;
     }
 
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o)
@@ -59,6 +68,6 @@ public class Person {
     @Override
     public String toString() {
         return "Person{" + "id=" + id + ", name='" + name + '\'' + ", lastName='" + lastName + '\''
-                + ", age=" + age + '}';
+                + ", age=" + age + ", phone='" + phone + '\'' + '}';
     }
 }
