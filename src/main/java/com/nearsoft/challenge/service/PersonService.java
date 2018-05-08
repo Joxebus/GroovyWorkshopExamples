@@ -1,6 +1,6 @@
 package com.nearsoft.challenge.service;
 
-import com.nearsoft.challenge.dao.PersonDao;
+import com.nearsoft.challenge.repository.PersonRepository;
 import com.nearsoft.challenge.entity.Person;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,15 +17,15 @@ public class PersonService {
     private static final String PHONE_REGEX = "(\\d{3})-(\\d{3})-(\\d{4})";
 
     @Autowired
-    private PersonDao personDao;
+    private PersonRepository personRepository;
 
     public Person create(Person newPerson) {
         validate(newPerson);
-        return personDao.save(newPerson);
+        return personRepository.save(newPerson);
     }
 
     public List<Person> findAll() {
-        return personDao.list();
+        return personRepository.list();
     }
 
     public Person update(Person newPerson) {
@@ -33,25 +33,25 @@ public class PersonService {
         if(newPerson.getId() < 1){
             throw new RuntimeException("Can't update person with id ="+newPerson.getId());
         }
-        Person person = personDao.findById(newPerson.getId());
+        Person person = personRepository.findById(newPerson.getId());
         person.setName(newPerson.getName());
         person.setLastName(newPerson.getLastName());
         person.setAge(newPerson.getAge());
         person.setPhone(newPerson.getPhone());
-        return personDao.update(person);
+        return personRepository.update(person);
     }
 
     public void delete(int id) {
-        Person person = personDao.findById(id);
+        Person person = personRepository.findById(id);
         if(person == null || person.getId() < 1){
             throw new IllegalArgumentException("Can't delete person with id ="+id);
         }
         logger.debug("Deleting person: {}", person);
-        personDao.delete(person);
+        personRepository.delete(person);
     }
 
     public Person findById(int id) {
-        Person person = personDao.findById(id);
+        Person person = personRepository.findById(id);
         if(person == null){
             throw new IllegalArgumentException("There is no person with id ="+id);
         }

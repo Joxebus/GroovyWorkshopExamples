@@ -21,6 +21,10 @@ dependencies {
 
     // Spring Dependencies
     compile "org.springframework.boot:spring-boot-starter-web:1.5.7.RELEASE"
+    compile "org.springframework.boot:spring-boot-starter-data-jpa:1.5.7.RELEASE"
     testCompile "org.springframework.boot:spring-boot-starter-test:1.5.7.RELEASE"
+
+    // DataBase
+    compile "com.h2database:h2:1.4.197"
 
 }

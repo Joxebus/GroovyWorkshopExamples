@@ -62,7 +62,7 @@ public class PersonController {
     @ExceptionHandler
     void handleIllegalArgumentException(IllegalArgumentException e, HttpServletResponse response)
             throws IOException {
-        logger.error("The request contains illegal arguments: {} - {}", e.getMessage(), e.getCause());
+        logger.error("The request contains illegal arguments: {}", e.getMessage());
         response.sendError(HttpStatus.BAD_REQUEST.value());
     }
 }

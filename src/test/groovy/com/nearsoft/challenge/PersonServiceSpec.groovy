@@ -1,6 +1,6 @@
 package com.nearsoft.challenge
 
-import com.nearsoft.challenge.dao.PersonDao
+import com.nearsoft.challenge.repository.PersonRepository
 import com.nearsoft.challenge.entity.Person
 import com.nearsoft.challenge.service.PersonService
 import spock.lang.Shared
@@ -10,7 +10,7 @@ import spock.lang.Unroll
 class PersonServiceSpec extends Specification {
 
     PersonService personService
-    PersonDao personDao
+    PersonRepository personDao
 
     @Shared
     Person person
@@ -18,7 +18,7 @@ class PersonServiceSpec extends Specification {
     def setup(){
         personDao = Mock()
         personService = new PersonService(
-                personDao: personDao
+                personRepository: personDao
         )
         person = new Person()
         person.with {
@@ -65,7 +65,7 @@ class PersonServiceSpec extends Specification {
         given:
         personDao = Stub()
         personService = new PersonService(
-                personDao: personDao
+                personRepository: personDao
         )
 
 
