@@ -2,7 +2,6 @@ package com.nearsoft.challenge.service;
 
 import com.nearsoft.challenge.dao.PersonDao;
 import com.nearsoft.challenge.entity.Person;
-import com.nearsoft.challenge.exception.PhoneFormatException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,7 +44,7 @@ public class PersonService {
     public void delete(int id) {
         Person person = personDao.findById(id);
         if(person == null || person.getId() < 1){
-            throw new RuntimeException("Can't delete person with id ="+id);
+            throw new IllegalArgumentException("Can't delete person with id ="+id);
         }
         logger.debug("Deleting person: {}", person);
         personDao.delete(person);
@@ -54,30 +53,30 @@ public class PersonService {
     public Person findById(int id) {
         Person person = personDao.findById(id);
         if(person == null){
-            throw new RuntimeException("There is no person with id ="+id);
+            throw new IllegalArgumentException("There is no person with id ="+id);
         }
         return person;
     }
 
     private void validate(Person person) {
         if(person == null){
-            throw new RuntimeException("A null person is not valid.");
+            throw new IllegalArgumentException("A null person is not valid.");
         }
 
         if(person.getName() == null || person.getName().isEmpty()){
-            throw new RuntimeException("The person name is not valid.");
+            throw new IllegalArgumentException("The person name is not valid.");
         }
 
         if(person.getLastName() == null || person.getLastName().isEmpty()){
-            throw new RuntimeException("The person last name is not valid.");
+            throw new IllegalArgumentException("The person last name is not valid.");
         }
 
         if(person.getAge() < 1 || person.getAge() > 70 ){
-            throw new RuntimeException("The person name is not valid.");
+            throw new IllegalArgumentException("The person name is not valid.");
         }
 
         if(person.getPhone() != null && !Pattern.matches(PHONE_REGEX, person.getPhone())){
-            throw new PhoneFormatException(String.format("Wrong format expected ###-###-####, but was: %s", person.getPhone()));
+            throw new IllegalArgumentException(String.format("Wrong format expected ###-###-####, but was: %s", person.getPhone()));
         }
     }
 

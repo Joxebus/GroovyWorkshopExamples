@@ -1,7 +1,6 @@
 package com.nearsoft.challenge
 
 import com.nearsoft.challenge.entity.Person
-import com.nearsoft.challenge.exception.PhoneFormatException
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.boot.test.web.client.TestRestTemplate
@@ -10,7 +9,6 @@ import org.springframework.http.HttpHeaders
 import org.springframework.http.HttpStatus
 import org.springframework.http.MediaType
 import spock.lang.Specification
-import spock.lang.Unroll
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class PersonControllerRestSpec extends Specification {
@@ -114,7 +112,7 @@ class PersonControllerRestSpec extends Specification {
         entity.body.phone     == '552-876-2341'
     }
 
-    def "/people save should throw 500"() {
+    def "/people save should throw 400"() {
         given:
         Person person = new Person()
         person.with {
@@ -132,7 +130,7 @@ class PersonControllerRestSpec extends Specification {
         def entity = restTemplate.postForEntity("/people/", data, Person)
 
         then:
-        entity.statusCode == HttpStatus.INTERNAL_SERVER_ERROR
+        entity.statusCode == HttpStatus.BAD_REQUEST
 
         where:
         newName    |  newLastName   |   newAge  |   newPhone

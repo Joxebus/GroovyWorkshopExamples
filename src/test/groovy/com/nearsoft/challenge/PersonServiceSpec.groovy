@@ -2,7 +2,6 @@ package com.nearsoft.challenge
 
 import com.nearsoft.challenge.dao.PersonDao
 import com.nearsoft.challenge.entity.Person
-import com.nearsoft.challenge.exception.PhoneFormatException
 import com.nearsoft.challenge.service.PersonService
 import spock.lang.Shared
 import spock.lang.Specification
@@ -52,14 +51,14 @@ class PersonServiceSpec extends Specification {
         Person person = personService.create(newPerson)
 
         then:
-        thrown exception
+        thrown IllegalArgumentException
 
         where:
-        newName    |  newLastName   |   newAge  |   newPhone    | exception
-        ''         | 'Something'    |   20      |   null        | RuntimeException
-        'Something'| ''             |   20      |   null        | RuntimeException
-        'Something'| 'Another Thing'|   0       |   null        | RuntimeException
-        'Something'| 'Another Thing'|   20      |   '12387611'  | PhoneFormatException
+        newName    |  newLastName   |   newAge  |   newPhone
+        ''         | 'Something'    |   20      |   null
+        'Something'| ''             |   20      |   null
+        'Something'| 'Another Thing'|   0       |   null
+        'Something'| 'Another Thing'|   20      |   '12387611'
     }
 
     def "Find a person by id"(){
