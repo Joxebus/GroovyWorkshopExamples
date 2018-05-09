@@ -17,15 +17,33 @@ and finally
 
 - Use default gradle wrapper
 
-## Challenge - Make Java Application even Groovier
+## Solution - Make Java Application even Groovier
 
-This challenge consist into convert most Java code as possible into Groovy code,
-the example is a Spring Boot Application with no context.
 
-When start the class **Bootstrap.java** loads some data into the **PersonDao.java** 
+Create classes with the same name but with **groovy** extension and inside the
+source folder `src/groovy` use the same packages.
 
-The idea is to create classes with the same name but with **groovy** extension and inside the
-source folder `src/groovy` using the same packages.
+#### Change from Java to Groovy
+
+Steps:
+
+- Move classes to groovy folder
+- Rename all the classes and change **.java** to **.groovy**
+- Remove **public** declarations
+- Change null checks for the same on Groovy Truth
+- Remove **return** statements
+- Change Json from glassfish dependency to Json Groovy support on Bootstrap class
+- Change set sentences to **'with'** closure Groovy Style
+- Use **ranges** to validate the **age**
+- Instead of concat a String use GStrings (Groovy String Interpolation)
+- Instead to call the method on PersonValidator use it as Category on PersonService
+
+Extras:
+
+- Since on bootstrap **'p'** is a map with the same name of properties of Person the sentence can be simplified with **'as'**
+- JsonSlurper can be a single sentence
+- PersonRepository can use the Groovy Truth istead of verify **id** and **null check**
+
 
 Inside `src/main/resources` a file named **postman_collection.json** is placed, is a configuration
 that can be load on postman and contains some examples for the requests.
