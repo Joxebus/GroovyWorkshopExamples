@@ -17,22 +17,22 @@ and finally
 
 - Use default gradle wrapper
 
-## Challenge - Make Java Application even Groovier
+## Challenge - Make Java Application look Groovier
 
 This challenge consist into convert most Java code as possible into Groovy code,
 the example is a Spring Boot Application with no context.
 
-When start the class **Bootstrap.java** loads some data into the **PersonDao.java** 
+After the application starts **Bootstrap.java** load the initial data in database if this is empty.
 
 The idea is to create classes with the same name but with **groovy** extension and inside the
 source folder `src/groovy` using the same packages.
 
 Inside `src/main/resources` a file named **postman_collection.json** is placed, is a configuration
-that can be load on postman and contains some examples for the requests.
+that can be loaded on postman and contains some examples for the requests.
 
 When you finish execute the tests to verify your code still works as expected.
 
-To see the results you can open in your browser the **index.html** created under.
+To see the test results you can open in your browser the **index.html** created under.
 
 ```
 build
