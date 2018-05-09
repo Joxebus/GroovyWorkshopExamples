@@ -33,7 +33,7 @@ public class PersonValidator {
 
     private static void validateAge(int age) {
         if(age < 1 || age > 70 ){
-            throw new IllegalArgumentException("The person name is not valid.");
+            throw new IllegalArgumentException("The person age is not valid.");
         }
     }
 
