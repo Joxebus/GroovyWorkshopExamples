@@ -1,27 +1,28 @@
 package com.nearsoft.challenge.service;
 
-import com.nearsoft.challenge.repository.PersonRepository;
 import com.nearsoft.challenge.entity.Person;
+import com.nearsoft.challenge.repository.PersonRepository;
+import com.nearsoft.challenge.utils.PersonValidator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.regex.Pattern;
 
 @Service
 public class PersonService {
 
     private static final Logger logger = LoggerFactory.getLogger(PersonService.class);
-    private static final String PHONE_REGEX = "(\\d{3})-(\\d{3})-(\\d{4})";
 
     @Autowired
     private PersonRepository personRepository;
 
     public Person create(Person newPerson) {
-        validate(newPerson);
-        return personRepository.save(newPerson);
+        PersonValidator.validate(newPerson);
+        Person person = personRepository.save(newPerson);
+        logger.debug("Person created: {}", person);
+        return person;
     }
 
     public List<Person> findAll() {
@@ -29,16 +30,18 @@ public class PersonService {
     }
 
     public Person update(Person newPerson) {
-        validate(newPerson);
+        PersonValidator.validate(newPerson);
         if(newPerson.getId() < 1){
-            throw new RuntimeException("Can't update person with id ="+newPerson.getId());
+            throw new IllegalArgumentException("Can't update person with id ="+newPerson.getId());
         }
         Person person = personRepository.findById(newPerson.getId());
         person.setName(newPerson.getName());
         person.setLastName(newPerson.getLastName());
         person.setAge(newPerson.getAge());
         person.setPhone(newPerson.getPhone());
-        return personRepository.update(person);
+        person = personRepository.update(person);
+        logger.debug("Person updated: {}", person);
+        return person;
     }
 
     public void delete(int id) {
@@ -55,29 +58,8 @@ public class PersonService {
         if(person == null){
             throw new IllegalArgumentException("There is no person with id ="+id);
         }
+        logger.debug("Person found: {}", person);
         return person;
-    }
-
-    private void validate(Person person) {
-        if(person == null){
-            throw new IllegalArgumentException("A null person is not valid.");
-        }
-
-        if(person.getName() == null || person.getName().isEmpty()){
-            throw new IllegalArgumentException("The person name is not valid.");
-        }
-
-        if(person.getLastName() == null || person.getLastName().isEmpty()){
-            throw new IllegalArgumentException("The person last name is not valid.");
-        }
-
-        if(person.getAge() < 1 || person.getAge() > 70 ){
-            throw new IllegalArgumentException("The person name is not valid.");
-        }
-
-        if(person.getPhone() != null && !Pattern.matches(PHONE_REGEX, person.getPhone())){
-            throw new IllegalArgumentException(String.format("Wrong format expected ###-###-####, but was: %s", person.getPhone()));
-        }
     }
 
 

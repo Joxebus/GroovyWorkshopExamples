@@ -28,7 +28,7 @@ class PersonServiceSpec extends Specification {
         }
     }
 
-    def "Person valid when create"(){
+    def "Person Service call repository save when entity has valid values"(){
         when:
         personService.create(person)
 
