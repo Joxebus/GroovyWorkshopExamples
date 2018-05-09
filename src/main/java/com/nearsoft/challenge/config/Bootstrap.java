@@ -10,11 +10,10 @@ import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 
+import javax.json.Json;
+import javax.json.JsonObject;
+import javax.json.JsonReader;
 import java.io.IOException;
-import java.net.URISyntaxException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.stream.Stream;
 
 @Component
 public class Bootstrap {
@@ -36,20 +35,21 @@ public class Bootstrap {
         logger.info("Loading initial information");
 
         if(personService.findAll() == null || personService.findAll().size() == 0) {
-            try (Stream<String> stream = Files.lines(Paths
-                    .get(getClass().getClassLoader().getResource("data.txt").toURI()))) {
-                stream.forEach(line -> {
-                    String data[] = line.split(",");
+            // Requires extra dependency see: build.gradle
+            try (JsonReader jsonReader =
+                    Json.createReader(getClass().getClassLoader().getResource("data.json").openStream())) {
+                jsonReader.readArray().forEach(jsonValue -> {
+                    JsonObject p = jsonValue.asJsonObject();
                     Person person = new Person();
-                    person.setName(data[0].trim());
-                    person.setLastName(data[1].trim());
-                    person.setAge(Integer.parseInt(data[2].trim()));
-                    person.setPhone(data[3].trim());
+                    person.setName(p.getString("name"));
+                    person.setLastName(p.getString("lastName"));
+                    person.setAge(p.getInt("age"));
+                    person.setPhone(p.getString("phone"));
                     personService.create(person);
                     logger.debug("Loading person: {}", person);
                 });
-            } catch (IOException | URISyntaxException e) {
-                logger.error("Error trying to load data.txt", e);
+            } catch (IOException e) {
+                logger.error("Error trying to load data.json", e);
             }
         }
 
