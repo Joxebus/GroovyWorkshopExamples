@@ -1,7 +1,7 @@
 package com.nearsoft.challenge
 
-import com.nearsoft.challenge.repository.PersonRepository
 import com.nearsoft.challenge.entity.Person
+import com.nearsoft.challenge.repository.PersonRepository
 import com.nearsoft.challenge.service.PersonService
 import spock.lang.Shared
 import spock.lang.Specification

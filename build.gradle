@@ -19,9 +19,6 @@ dependencies {
     testRuntime 'cglib:cglib-nodep:3.2.4'       // For mocking classes
     testCompile 'org.objenesis:objenesis:1.2'   // For mocking final classes
 
-    // Json External API
-    compile "org.glassfish:javax.json:1.1.2"
-
     // Spring Dependencies
     compile "org.springframework.boot:spring-boot-starter-web:1.5.7.RELEASE"
     compile "org.springframework.boot:spring-boot-starter-data-jpa:1.5.7.RELEASE"
