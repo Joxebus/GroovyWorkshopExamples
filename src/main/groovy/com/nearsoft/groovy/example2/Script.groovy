@@ -16,6 +16,7 @@ class FileBinaryDownload {
                 def bs = new BufferedOutputStream( os )
                 bs << is
             }
+            println "finish to write the file $file"
         }
     }
 
@@ -23,5 +24,6 @@ class FileBinaryDownload {
 
 
 use(FileBinaryDownload){
+    println "Trying to download $url"
     file << url.toURL()
 }
