@@ -10,15 +10,15 @@ import spock.lang.Unroll
 class PersonServiceSpec extends Specification {
 
     PersonService personService
-    PersonRepository personDao
+    PersonRepository personRepository
 
     @Shared
     Person person
 
     def setup(){
-        personDao = Mock()
+        personRepository = Mock()
         personService = new PersonService(
-                personRepository: personDao
+                personRepository: personRepository
         )
         person = new Person()
         person.with {
@@ -33,7 +33,7 @@ class PersonServiceSpec extends Specification {
         personService.create(person)
 
         then:
-        1 * personDao.save(person)
+        1 * personRepository.save(person)
     }
 
     @Unroll("Testing invalid values name=#newName, lastName=#newLastName, age=#newAge, phone=#newPhone")
@@ -63,14 +63,14 @@ class PersonServiceSpec extends Specification {
 
     def "Find a person by id"(){
         given:
-        personDao = Stub()
+        personRepository = Stub()
         personService = new PersonService(
-                personRepository: personDao
+                personRepository: personRepository
         )
 
 
         and:
-        personDao.findById(1) >> new Person([
+        personRepository.findById(1) >> new Person([
                 id:1,
                 name:"some",
                 lastName:"thing",
