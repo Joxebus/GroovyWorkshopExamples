@@ -7,6 +7,7 @@ if(!args){
 File file = new File(args[0])
 String url = args[1]
 
+// Category
 class FileBinaryDownload {
 
     // Overload operator <<

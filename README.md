@@ -17,7 +17,7 @@ and finally
 
 - Use default gradle wrapper
 
-### Example 2 - Groovy features: closures, data types, loops and power asserts
+### Example 2 - Groovy features: closures, data types, loops, scripts and power asserts
 
 This branch contains some examples of the most common usage of
 closures, data types, loops and power asserts on the next classes
@@ -25,6 +25,11 @@ closures, data types, loops and power asserts on the next classes
 - DefaultDataTypes.groovy
 - Loops.groovy
 - PowerAsserts.groovy
+- Script.groovy
+- AntScript.groovy
+- FileReaderCategory.groovy
+- ExtractUrlFromText.groovy
+- UsingCategories.groovy
 
 ## Requirements
 
@@ -40,3 +45,11 @@ For MacOS and Linux
 or for Windows
 
 `` gradlew.bat test``
+
+# Grant your scripts
+
+```
+chmod +X script.groovy
+chmod 755 script.groovy
+```
+
