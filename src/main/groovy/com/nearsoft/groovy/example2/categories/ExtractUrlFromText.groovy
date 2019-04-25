@@ -1,6 +1,6 @@
 package com.nearsoft.groovy.example2.categories
 
-class ExtractUrlFromText extends FileReaderCategory {
+class ExtractUrlFromText {
 
     private static String regex = 'http://[-A-Za-z0-9./_-]*[-A-Za-z0-9._-]'
 
