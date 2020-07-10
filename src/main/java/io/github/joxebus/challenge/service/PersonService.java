@@ -1,8 +1,8 @@
-package com.nearsoft.challenge.service;
+package io.github.joxebus.challenge.service;
 
-import com.nearsoft.challenge.entity.Person;
-import com.nearsoft.challenge.repository.PersonRepository;
-import com.nearsoft.challenge.utils.PersonValidator;
+import io.github.joxebus.challenge.entity.Person;
+import io.github.joxebus.challenge.repository.PersonRepository;
+import io.github.joxebus.challenge.utils.PersonValidator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,4 @@
-package com.nearsoft.challenge.entity;
+package io.github.joxebus.challenge.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

@@ -1,6 +1,7 @@
-package com.nearsoft.challenge
+package io.github.joxebus.challenge
 
-import com.nearsoft.challenge.entity.Person
+
+import io.github.joxebus.challenge.entity.Person
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.boot.test.web.client.TestRestTemplate
