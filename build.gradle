@@ -1,4 +1,4 @@
-group 'com.nearsoft'
+group 'io.github.joxebus'
 version '1.0-SNAPSHOT'
 
 apply plugin: 'groovy'
@@ -12,19 +12,33 @@ repositories {
 }
 
 dependencies {
-    compile 'org.codehaus.groovy:groovy-all:2.4.13'
-    testCompile 'org.spockframework:spock-core:1.0-groovy-2.4'
-    testCompile 'org.spockframework:spock-spring:1.1-groovy-2.4'
+
+    compile 'org.codehaus.groovy:groovy-all:3.0.0'
+    testCompile 'org.spockframework:spock-core:2.0-M3-groovy-3.0'
+    testCompile 'org.spockframework:spock-spring:2.0-M3-groovy-3.0'
 
     testRuntime 'cglib:cglib-nodep:3.2.4'       // For mocking classes
     testCompile 'org.objenesis:objenesis:1.2'   // For mocking final classes
 
     // Spring Dependencies
-    compile "org.springframework.boot:spring-boot-starter-web:1.5.7.RELEASE"
-    compile "org.springframework.boot:spring-boot-starter-data-jpa:1.5.7.RELEASE"
-    testCompile "org.springframework.boot:spring-boot-starter-test:1.5.7.RELEASE"
+    compile "org.springframework.boot:spring-boot-starter-web:2.3.1.RELEASE"
+    compile "org.springframework.boot:spring-boot-starter-data-jpa:2.3.1.RELEASE"
+    testCompile "org.springframework.boot:spring-boot-starter-test:2.3.1.RELEASE"
 
     // DataBase
     compile "com.h2database:h2:1.4.197"
+}
 
+sourceSets {
+    main {
+        java { srcDirs = [] }    // no source dirs for the java compiler
+        groovy { srcDirs = ["src/main/java", "src/main/groovy"] }  // compile   everything in src/ with groovy
+    }
+}
+
+test {
+    useJUnitPlatform()
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
 }
