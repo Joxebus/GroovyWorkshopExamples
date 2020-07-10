@@ -1,4 +1,8 @@
-import com.nearsoft.groovy.example2.categories.*
+package io.github.joxebus.groovy.example2
+
+
+import io.github.joxebus.groovy.example2.categories.ExtractUrlFromText
+import io.github.joxebus.groovy.example2.categories.FileReaderCategory
 
 class UsingCategories {
 

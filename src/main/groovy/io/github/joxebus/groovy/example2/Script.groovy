@@ -1,4 +1,5 @@
 #!/usr/bin/env groovy
+package io.github.joxebus.groovy.example2
 
 if(!args){
     throw new RuntimeException("This script requires the 'URL' and 'location to save'")

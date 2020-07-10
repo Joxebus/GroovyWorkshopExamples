@@ -1,4 +1,5 @@
 #!/usr/bin/env groovy
+package io.github.joxebus.groovy.example2
 
 version = '2.2.0'
 release = '2.11-2.2.0'

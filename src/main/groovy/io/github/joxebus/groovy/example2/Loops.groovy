@@ -1,4 +1,4 @@
-package com.nearsoft.groovy.example2
+package io.github.joxebus.groovy.example2
 /**
  * This is an example of different ways to write or use a loop
  * with Groovy.

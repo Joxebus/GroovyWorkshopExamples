@@ -1,4 +1,4 @@
-package com.nearsoft.groovy.example2
+package io.github.joxebus.groovy.example2
 
 /**
  * This are some examples of the data types that

@@ -1,4 +1,4 @@
-package com.nearsoft.groovy.example2.categories
+package io.github.joxebus.groovy.example2.categories
 
 class ExtractUrlFromText {
 
