@@ -37,7 +37,7 @@ Both classes contains the same tests but in their own style.
 ## Requirements
 
 - Java 8
-- Gradle 3.3
+- Gradle 5.6
 
 ## Run tests
 
