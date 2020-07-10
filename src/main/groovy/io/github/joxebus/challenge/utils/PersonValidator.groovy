@@ -1,6 +1,6 @@
-package com.nearsoft.challenge.utils
+package io.github.joxebus.challenge.utils
 
-import com.nearsoft.challenge.entity.Person
+import io.github.joxebus.challenge.entity.Person
 
 
 class PersonValidator {

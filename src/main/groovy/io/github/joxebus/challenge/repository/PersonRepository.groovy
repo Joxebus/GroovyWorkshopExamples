@@ -1,6 +1,7 @@
-package com.nearsoft.challenge.repository
+package io.github.joxebus.challenge.repository
 
-import com.nearsoft.challenge.entity.Person
+
+import io.github.joxebus.challenge.entity.Person
 import org.springframework.stereotype.Repository
 import org.springframework.transaction.annotation.Transactional
 
