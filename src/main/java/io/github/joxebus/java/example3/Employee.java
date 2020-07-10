@@ -1,7 +1,4 @@
-package com.nearsoft.java.example3;
-
-import groovyjarjarantlr.StringUtils;
-import org.codehaus.groovy.util.StringUtil;
+package io.github.joxebus.java.example3;
 
 import java.util.Date;
 

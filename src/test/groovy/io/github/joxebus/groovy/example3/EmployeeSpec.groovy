@@ -1,6 +1,6 @@
-package com.nearsoft.groovy.example3
+package io.github.joxebus.groovy.example3
 
-import com.nearsoft.java.example3.Employee
+import io.github.joxebus.java.example3.Employee
 import spock.lang.Shared
 import spock.lang.Specification
 
