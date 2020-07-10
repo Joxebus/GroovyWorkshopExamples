@@ -1,4 +1,4 @@
-group 'com.nearsoft'
+group 'io.github.joxebus'
 version '1.0-SNAPSHOT'
 
 apply plugin: 'groovy'
@@ -12,6 +12,7 @@ repositories {
 }
 
 dependencies {
-    compile 'org.codehaus.groovy:groovy-all:2.4.13'
-    testCompile 'org.spockframework:spock-core:1.0-groovy-2.4'
+    compile 'org.codehaus.groovy:groovy-all:3.0.3'
+    testCompile 'org.spockframework:spock-core:2.0-M3-groovy-3.0'
+    testCompile 'org.spockframework:spock-spring:2.0-M3-groovy-3.0'
 }

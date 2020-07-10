@@ -31,7 +31,7 @@ sort, reverse, with, find and findAll closures.
 ## Requirements
 
 - Java 8
-- Gradle 3.3
+- Gradle 5.6
 
 ## Run tests
 
