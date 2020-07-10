@@ -1,4 +1,6 @@
 # GroovyWorkshopExamples
+[![Build Status](https://travis-ci.com/Joxebus/GroovyWorkshopExamples.svg?branch=master)](https://travis-ci.com/Joxebus/GroovyWorkshopExamples)
+
 Examples for Groovy Workshop
 
 This repo has examples of the workshop which is aimed to people that want know about Groovy language,
