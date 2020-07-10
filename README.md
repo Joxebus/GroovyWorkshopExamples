@@ -47,7 +47,7 @@ build
 ## Requirements
 
 - Java 8
-- Gradle 5.5
+- Gradle 5.6
 - Postman
 
 ## Run tests
@@ -59,3 +59,13 @@ For MacOS and Linux
 or for Windows
 
 `` gradlew.bat test``
+
+## Run Application
+
+For MacOS and Linux
+
+`` ./gradlew bootRun ``  
+
+or for Windows
+
+`` gradlew.bat bootRun``
