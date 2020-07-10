@@ -26,38 +26,32 @@ public class PersonService {
     }
 
     public List<Person> findAll() {
-        return personRepository.list();
+        return personRepository.findAll();
     }
 
     public Person update(Person newPerson) {
         PersonValidator.validate(newPerson);
-        if(newPerson.getId() < 1){
-            throw new IllegalArgumentException("Can't update person with id ="+newPerson.getId());
-        }
-        Person person = personRepository.findById(newPerson.getId());
+        Person person = personRepository.findById(newPerson.getId())
+                .orElseThrow(() -> new IllegalArgumentException("Can't update person with id ="+newPerson.getId()));
         person.setName(newPerson.getName());
         person.setLastName(newPerson.getLastName());
         person.setAge(newPerson.getAge());
         person.setPhone(newPerson.getPhone());
-        person = personRepository.update(person);
+        person = personRepository.save(person);
         logger.debug("Person updated: {}", person);
         return person;
     }
 
     public void delete(int id) {
-        Person person = personRepository.findById(id);
-        if(person == null || person.getId() < 1){
-            throw new IllegalArgumentException("Can't delete person with id ="+id);
-        }
+        Person person = personRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Can't delete person with id ="+id));
         logger.debug("Deleting person: {}", person);
         personRepository.delete(person);
     }
 
     public Person findById(int id) {
-        Person person = personRepository.findById(id);
-        if(person == null){
-            throw new IllegalArgumentException("There is no person with id ="+id);
-        }
+        Person person = personRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("There is no person with id ="+id));
         logger.debug("Person found: {}", person);
         return person;
     }
