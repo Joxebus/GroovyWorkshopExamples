@@ -1,13 +1,12 @@
 package io.github.joxebus.challenge
 
 import org.springframework.boot.SpringApplication
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration
 import org.springframework.boot.autoconfigure.SpringBootApplication
+import org.springframework.boot.autoconfigure.groovy.template.GroovyTemplateAutoConfiguration
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RestController
 
-@SpringBootApplication
-@EnableAutoConfiguration
+@SpringBootApplication (exclude = GroovyTemplateAutoConfiguration.class )
 @RestController
 class App {
 

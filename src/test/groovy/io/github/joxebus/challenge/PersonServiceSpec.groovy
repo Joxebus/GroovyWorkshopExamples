@@ -70,12 +70,12 @@ class PersonServiceSpec extends Specification {
 
 
         and:
-        personRepository.findById(1) >> new Person([
+        personRepository.findById(1) >> Optional.of(new Person([
                 id:1,
                 name:"some",
                 lastName:"thing",
                 age: 30
-        ])
+        ]))
 
         when:
 

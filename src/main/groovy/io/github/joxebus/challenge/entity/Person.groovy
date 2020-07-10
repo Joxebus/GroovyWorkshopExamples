@@ -12,7 +12,7 @@ import javax.persistence.Id
 class Person {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id
     String name
     String lastName

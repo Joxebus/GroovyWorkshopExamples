@@ -28,43 +28,40 @@ class PersonService {
     }
 
     List<Person> findAll() {
-        personRepository.list()
+        personRepository.findAll()
     }
 
     Person update(Person newPerson) {
         Person person
         use(PersonValidator){
             newPerson.validate()
-            if(newPerson.getId() < 1){
-                throw new IllegalArgumentException("Can't update person with id = ${newPerson.getId()}")
-            }
-            person = personRepository.findById(newPerson.getId())
+            person = personRepository.findById(newPerson.getId()).orElseThrow(
+                    () -> new IllegalArgumentException("Can't find person with id = ${newPerson.getId()}")
+            )
             person.with {
                 name = newPerson.name
                 lastName = newPerson.lastName
                 age = newPerson.age
                 phone = newPerson.phone
             }
-            person = personRepository.update(person)
+            person = personRepository.save(person)
             logger.debug("Person updated: {}", person)
         }
         person
     }
 
     void delete(int id) {
-        Person person = personRepository.findById(id)
-        if(!person || person.getId() < 1){
-            throw new IllegalArgumentException("Can't delete person with id = $id")
-        }
+        Person person = personRepository.findById(id).orElseThrow(
+                () -> new IllegalArgumentException("Can't delete person with id = ${id}")
+        )
         logger.debug("Deleting person: $person")
         personRepository.delete(person)
     }
 
     Person findById(int id) {
-        Person person = personRepository.findById(id)
-        if(!person){
-            throw new IllegalArgumentException("There is no person with id = $id")
-        }
+        Person person = personRepository.findById(id).orElseThrow(
+                () -> new IllegalArgumentException("Person not found")
+        )
         logger.debug("Person found: {}", person)
         person
     }
