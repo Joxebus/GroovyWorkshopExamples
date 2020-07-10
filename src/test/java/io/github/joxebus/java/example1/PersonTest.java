@@ -1,4 +1,4 @@
-package com.nearsoft.java.example1;
+package io.github.joxebus.java.example1;
 
 import org.junit.Test;
 
@@ -13,7 +13,7 @@ public class PersonTest {
     @Test
     public void testPersonJava(){
         // Is not necessary  to use the whole package since this class is in the same.
-        com.nearsoft.java.example1.Person person = new com.nearsoft.java.example1.Person();
+        Person person = new Person();
         person.setName("Omar");
         person.setLastName("Bautista");
         person.setAge(30);
@@ -25,7 +25,7 @@ public class PersonTest {
 
     @Test
     public void testPersonGroovy(){
-        com.nearsoft.groovy.example1.Person person = new com.nearsoft.groovy.example1.Person();
+        io.github.joxebus.groovy.example1.Person person = new io.github.joxebus.groovy.example1.Person();
         person.setName("Omar");
         person.setLastName("Bautista");
         person.setAge(30);
@@ -37,10 +37,10 @@ public class PersonTest {
 
     @Test
     public void testFourConstructorsForJava(){
-        com.nearsoft.java.example1.Person person1 = new com.nearsoft.java.example1.Person();
-        com.nearsoft.java.example1.Person person2 = new com.nearsoft.java.example1.Person("Omar");
-        com.nearsoft.java.example1.Person person3 = new com.nearsoft.java.example1.Person("Omar", "Bautista");
-        com.nearsoft.java.example1.Person person4 = new com.nearsoft.java.example1.Person("Omar", "Bautista", 30);
+        Person person1 = new Person();
+        Person person2 = new Person("Omar");
+        Person person3 = new Person("Omar", "Bautista");
+        Person person4 = new Person("Omar", "Bautista", 30);
 
         // person1
         assertNull(person1.getName());
@@ -65,10 +65,10 @@ public class PersonTest {
 
     @Test
     public void testFourConstructorsForGroovy(){
-        com.nearsoft.groovy.example1.Person person1 = new com.nearsoft.groovy.example1.Person();
-        com.nearsoft.groovy.example1.Person person2 = new com.nearsoft.groovy.example1.Person("Omar");
-        com.nearsoft.groovy.example1.Person person3 = new com.nearsoft.groovy.example1.Person("Omar", "Bautista");
-        com.nearsoft.groovy.example1.Person person4 = new com.nearsoft.groovy.example1.Person("Omar", "Bautista", 30);
+        io.github.joxebus.groovy.example1.Person person1 = new io.github.joxebus.groovy.example1.Person();
+        io.github.joxebus.groovy.example1.Person person2 = new io.github.joxebus.groovy.example1.Person("Omar");
+        io.github.joxebus.groovy.example1.Person person3 = new io.github.joxebus.groovy.example1.Person("Omar", "Bautista");
+        io.github.joxebus.groovy.example1.Person person4 = new io.github.joxebus.groovy.example1.Person("Omar", "Bautista", 30);
 
         // person1
         assertNull(person1.getName());
@@ -93,10 +93,10 @@ public class PersonTest {
 
     @Test
     public void testHashCodeForBothPersons(){
-        com.nearsoft.groovy.example1.Person person1 = new com.nearsoft.groovy.example1.Person("Omar", "Bautista", 30);
-        com.nearsoft.groovy.example1.Person person2 = new com.nearsoft.groovy.example1.Person("Omar", "Bautista", 30);
-        com.nearsoft.java.example1.Person person3 = new com.nearsoft.java.example1.Person("Omar", "Bautista", 30);
-        com.nearsoft.java.example1.Person person4 = new com.nearsoft.java.example1.Person("Omar", "Bautista", 30);
+        io.github.joxebus.groovy.example1.Person person1 = new io.github.joxebus.groovy.example1.Person("Omar", "Bautista", 30);
+        io.github.joxebus.groovy.example1.Person person2 = new io.github.joxebus.groovy.example1.Person("Omar", "Bautista", 30);
+        Person person3 = new Person("Omar", "Bautista", 30);
+        Person person4 = new Person("Omar", "Bautista", 30);
 
         assertEquals(person1.hashCode(), person2.hashCode());
         assertEquals(person3.hashCode(), person4.hashCode());
@@ -104,8 +104,8 @@ public class PersonTest {
 
     @Test
     public void testHasCodeForBothPersons(){
-        com.nearsoft.groovy.example1.Person person1 = new com.nearsoft.groovy.example1.Person("Omar", "Bautista", 30);
-        com.nearsoft.java.example1.Person person2 = new com.nearsoft.java.example1.Person("Omar", "Bautista", 30);
+        io.github.joxebus.groovy.example1.Person person1 = new io.github.joxebus.groovy.example1.Person("Omar", "Bautista", 30);
+        Person person2 = new Person("Omar", "Bautista", 30);
 
         assertEquals(person1.hashCode(), person2.hashCode());
     }

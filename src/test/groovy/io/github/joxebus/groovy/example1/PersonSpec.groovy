@@ -1,4 +1,4 @@
-package com.nearsoft.groovy.example1
+package io.github.joxebus.groovy.example1
 
 import spock.lang.Specification
 
@@ -9,7 +9,7 @@ class PersonSpec extends Specification {
 
     def "Verify Person java"(){
         given:
-        com.nearsoft.java.example1.Person person = new com.nearsoft.java.example1.Person()
+        io.github.joxebus.java.example1.Person person = new io.github.joxebus.java.example1.Person()
 
         when:
         person.setName("Omar")
@@ -25,7 +25,7 @@ class PersonSpec extends Specification {
     def "Verify Person groovy"(){
         given:
         // Is not necessary  to use the whole package since this class is in the same.
-        com.nearsoft.groovy.example1.Person person = new com.nearsoft.groovy.example1.Person()
+        Person person = new Person()
 
         when:
         person.setName("Omar")
@@ -40,10 +40,10 @@ class PersonSpec extends Specification {
 
     def "Verify the 4 constructors for Java"(){
         setup:
-        com.nearsoft.java.example1.Person person1 = new com.nearsoft.java.example1.Person()
-        com.nearsoft.java.example1.Person person2 = new com.nearsoft.java.example1.Person("Omar")
-        com.nearsoft.java.example1.Person person3 = new com.nearsoft.java.example1.Person("Omar", "Bautista")
-        com.nearsoft.java.example1.Person person4 = new com.nearsoft.java.example1.Person("Omar", "Bautista", 30)
+        io.github.joxebus.java.example1.Person person1 = new io.github.joxebus.java.example1.Person()
+        io.github.joxebus.java.example1.Person person2 = new io.github.joxebus.java.example1.Person("Omar")
+        io.github.joxebus.java.example1.Person person3 = new io.github.joxebus.java.example1.Person("Omar", "Bautista")
+        io.github.joxebus.java.example1.Person person4 = new io.github.joxebus.java.example1.Person("Omar", "Bautista", 30)
 
         expect:
         person1.getName() == null
@@ -68,10 +68,10 @@ class PersonSpec extends Specification {
 
     def "Verify the 4 constructors for Groovy"(){
         setup:
-        com.nearsoft.groovy.example1.Person person1 = new com.nearsoft.groovy.example1.Person()
-        com.nearsoft.groovy.example1.Person person2 = new com.nearsoft.groovy.example1.Person("Omar")
-        com.nearsoft.groovy.example1.Person person3 = new com.nearsoft.groovy.example1.Person("Omar", "Bautista")
-        com.nearsoft.groovy.example1.Person person4 = new com.nearsoft.groovy.example1.Person("Omar", "Bautista", 30)
+        Person person1 = new Person()
+        Person person2 = new Person("Omar")
+        Person person3 = new Person("Omar", "Bautista")
+        Person person4 = new Person("Omar", "Bautista", 30)
 
         expect:
         person1.getName() == null
@@ -96,10 +96,10 @@ class PersonSpec extends Specification {
 
     def "Verify 2 persons can generate the same hashCode"(){
         setup:
-        com.nearsoft.groovy.example1.Person person1 = new com.nearsoft.groovy.example1.Person("Omar", "Bautista", 30)
-        com.nearsoft.groovy.example1.Person person2 = new com.nearsoft.groovy.example1.Person("Omar", "Bautista", 30)
-        com.nearsoft.java.example1.Person person3 = new com.nearsoft.java.example1.Person("Omar", "Bautista", 30)
-        com.nearsoft.java.example1.Person person4 = new com.nearsoft.java.example1.Person("Omar", "Bautista", 30)
+        Person person1 = new Person("Omar", "Bautista", 30)
+        Person person2 = new Person("Omar", "Bautista", 30)
+        io.github.joxebus.java.example1.Person person3 = new io.github.joxebus.java.example1.Person("Omar", "Bautista", 30)
+        io.github.joxebus.java.example1.Person person4 = new io.github.joxebus.java.example1.Person("Omar", "Bautista", 30)
 
         expect:
         person1.hashCode() == person2.hashCode()
@@ -110,8 +110,8 @@ class PersonSpec extends Specification {
 
     def "Verify 2 persons of different class generate same hashCode"(){
         setup:
-        com.nearsoft.groovy.example1.Person person1 = new com.nearsoft.groovy.example1.Person("Omar", "Bautista", 30)
-        com.nearsoft.java.example1.Person person2 = new com.nearsoft.java.example1.Person("Omar", "Bautista", 30)
+        Person person1 = new Person("Omar", "Bautista", 30)
+        io.github.joxebus.java.example1.Person person2 = new io.github.joxebus.java.example1.Person("Omar", "Bautista", 30)
 
         expect: "The expected here is to modify the code to make the test pass"
         person1.hashCode() == person2.hashCode()

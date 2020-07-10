@@ -1,4 +1,4 @@
-package com.nearsoft.groovy.example1
+package io.github.joxebus.groovy.example1
 
 import groovy.transform.Canonical
 

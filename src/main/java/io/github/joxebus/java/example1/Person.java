@@ -1,4 +1,4 @@
-package com.nearsoft.java.example1;
+package io.github.joxebus.java.example1;
 
 /**
  * This class has the same fields as the groovy class
