@@ -47,7 +47,7 @@ build
 ## Requirements
 
 - Java 8
-- Gradle 3.3
+- Gradle 5.5
 - Postman
 
 ## Run tests
