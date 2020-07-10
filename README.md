@@ -34,7 +34,7 @@ closures, data types, loops and power asserts on the next classes
 ## Requirements
 
 - Java 8
-- Gradle 3.3
+- Gradle 5.6
 
 ## Run tests
 
