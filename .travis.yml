@@ -1,7 +1,9 @@
 language: java
-sudo: false
-addons:
-  apt:
-    packages:
-      - oracle-java8-installer
-script: gradle clean test
+install: skip
+
+os: linux
+dist: trusty
+jdk: oraclejdk8
+
+script:
+  - ./gradlew build --scan -s

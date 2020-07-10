@@ -3,6 +3,7 @@ package io.github.joxebus.java.example1;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNull;
 
 /**
@@ -103,11 +104,11 @@ public class PersonTest {
     }
 
     @Test
-    public void testHasCodeForBothPersons(){
+    public void testHasCodeForBothPersonsNotEquals(){
         io.github.joxebus.groovy.example1.Person person1 = new io.github.joxebus.groovy.example1.Person("Omar", "Bautista", 30);
         Person person2 = new Person("Omar", "Bautista", 30);
 
-        assertEquals(person1.hashCode(), person2.hashCode());
+        assertNotEquals(person1.hashCode(), person2.hashCode());
     }
 
 
